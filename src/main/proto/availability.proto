@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package proto;
+
+option java_package="com.rimaz.availability";
+option java_multiple_files= true;
+
+message AvailabilityRequest{
+    int32 flight_id=1;
+}
+
+message AvailabilityResponse{
+    int32 seats = 1;
+}
+
+service AvailabilityService{
+    rpc Availability(AvailabilityRequest) returns (AvailabilityResponse) {}
+}
