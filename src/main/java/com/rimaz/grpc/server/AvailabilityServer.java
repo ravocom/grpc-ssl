@@ -4,6 +4,7 @@ import com.rimaz.grpc.service.AvailabilityServiceImpl;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
+import java.io.File;
 import java.io.IOException;
 
 public class AvailabilityServer {
@@ -11,6 +12,7 @@ public class AvailabilityServer {
     public static void main(String[] args) throws IOException, InterruptedException {
         Server server = ServerBuilder.forPort(50051)
                 .addService(new AvailabilityServiceImpl())
+                .useTransportSecurity(new File("ssl/server.crt"), new File("ssl/server.pem"))
                 .build();
 
         server.start();

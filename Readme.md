@@ -67,3 +67,11 @@
  5. Write the serviceImpl by extending ServiceImplBase
  
  6. Write the client.
+ 
+ *) Enable for SSL  
+    a) Generate the required cert files.  
+       Google search grpc-java > examples>example-tls
+    b) Server related impl  
+        .useTransportSecurity(new File("ssl/server.crt"), new File("ssl/server.pem"))
+    c) Client related impl  
+       
