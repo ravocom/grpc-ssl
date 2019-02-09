@@ -74,4 +74,5 @@
     b) Server related impl  
         .useTransportSecurity(new File("ssl/server.crt"), new File("ssl/server.pem"))
     c) Client related impl  
-       
+          .sslContext(GrpcSslContexts.forClient().trustManager(new File("ssl/ca.crt")).build())
+          refer: https://grpc.io/docs/guides/auth.html
